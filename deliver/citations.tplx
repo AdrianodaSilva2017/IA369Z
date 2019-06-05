@@ -1,0 +1,14 @@
+((*- extends 'article.tplx' -*))
+
+((* block author *))
+\author{Adriano da Silva}
+((* endblock author *))
+
+((* block title *))
+\title{Verificação de método de compressão para imagens Dicom}
+((* endblock title *))
+
+((* block bibliography *))
+\bibliographystyle{plain}
+\bibliography{ref}
+((* endblock bibliography *))
