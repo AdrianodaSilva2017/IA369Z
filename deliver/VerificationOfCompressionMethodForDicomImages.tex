@@ -10,7 +10,9 @@
 
 
     
-\documentclass[11pt]{article}
+\documentclass{IEEEtran}
+
+
 
     
     
@@ -292,23 +294,23 @@
     
 
     
-    \section{Resumo}\label{resumo}
+    Resumo 
 
     Este artigo busca responder os efeitos da aplicação de algorítimos de
 compressão de imagens comumente utilizados quando aplicados a imagens
 Dicom, bem como encontrar um método de compressão de imagens de
 tomografia computadorizada, tendo em vista que a perda de qualidade seja
 minimizada ao ponto de não interferir em uma análise clínica humana.
-\textbf{Palavras Chave:} Dicom Imagens Compressão Método
+\textbf{Palavras Chave:} DICOM; Imagens; Compressão; Método;
 
-    \subsection{1. Introdução}\label{introduuxe7uxe3o}
+    \section{Introdução}\label{introduuxe7uxe3o}
 
     Durante a década de 80, pesquisas no sentido de se criar um padrão para
 comunicação e armazenamento de imagens digitais médicas foram
 empreendidas pelo American College of Radiology em conjunto com o
 National Electrical Manufacturers Association. Tais pesquisas resultaram
 em 1993 na criação do padrão digital imaging and communications in
-medicine. \{\% cite grauer2009working \%\}
+medicine. \cite{grauer2009working}
 
 Ainda de acordo com os autores, um registro DICOM consiste em um
 conjunto de informações sobre o paciente e as condições específicas da
@@ -316,42 +318,58 @@ imagem adquirida deste (chamados de DICOMDIR) adicionado de um conjunto
 de várias imagens 2D (lâminas) que ordenadas de maneira adequada formam
 uma imagem 3D.
 
-Segundo \{\% cite koff2009pan \%\} os registros Dicom são arquivos
-eletrônicos de dados relativamente grandes e por isso consomem muito
-recurso, tanto em capacidade para o seu devido armazenamento quanto em
-banda para sua transmissão em redes de dados, gerando altos custos e
-complicações de infraestrutura de TI. Os autores destacam que, apesar
-dos problemas aludidos, a demanda por armazenamento deste tipo de dados
-tem crescido bastante o que eleva o interesse pela busca por
-alternativas eficientes para a compressão destes dados.
+Segundo \cite{koff2009pan}
 
-Ainda conforme a visão dos autores, esta necessidade se evidencia em
-departamentos de imagens médicas, principalmente quando se fala em
-imagens de multiplas lâminas, como nos casos de exames de tomografia
-computadorizada (CT) e de imagem de ressonância magnética (RMI).
+    \section{Motivação}\label{motivauxe7uxe3o}
 
-O objetivo desta pesquisa é encontrar um método de compressão de imagens
-para ser aplicado em lâminas de images Dicom relativas a resultados de
-exames de diagnósticos por imagem, desde que a perda de qualidade seja
-mínima, não interferindo negativamente em uma análise clínica humana.
+    Os exames de diagnósticos por imagem são cada vez mais presentes e
+frequentes no cotidiano de quem trabalha na área de saúde e sua
+importância tem crescido continuamente para auxiliar no tratamento de
+inúmeras patologias.
 
-\{\% arthur2017making \%\}
+Os arquivos que armazenam essas imagens geralmente são constituídos em
+formato puro (raw), sem compressão, com o objetivo da manutenção da
+fidelidade da imagem captada. Embora os arquivos nesse formato sejam
+fiéis para a manutenção da imagem idêntica ao que fora originalmente
+captada, eles mantém toda a informação da captura e por isso são muito
+mais volumosos demandando muito mais recursos de TI, tanto de espaço
+para armazenamento em mídias digitais quanto de banda para transmissão
+em redes, quando comparado com os formatos comprimidos.
 
-Para tal, foi analisado visualmente as imagens, fazendo um corte em uma
-determinada região da mesma, destacando e aplicando aumento no tamanho
-para facilitar a comparação. Foi medido também atráves dos algorítimos
-de erro quadratico médio de índice de similaridade estrutural aplicados
-à imagem, alterações visuais que ocorrem nos processos de compressão da
-imagem. \{\% rosebrock2014python \%\}
+Cada vez mais observa-se a necessidade de armazenamento, processamento e
+transmissão de imagens digitais em hospitais e clínicas médicas e a
+quantidade destas imagens tem crescido exponencialmente.
 
-Analisaremos o resultado obtido com a compressão de imagens JPEG por ser
-um padrão popular e eficiente.
+Consequentemente o volume de dados que trafegam em redes (locais ou
+mesmo na internet) e são armazenados nas mais diversas mídias digitais,
+também tem se tornado cada vez maior e isso tem criado cada vez mais
+demandas por altas capacidades em infraestrutura de TI. O armazenamento
+e transmissão de grandes volumes de dados sempre é problemático, e isso
+significa que a gestão destas imagens acaba sendo onerosa.
 
-Para auxiliar na pesquisa, utilizaremos os algorítimos do erro
-quadrático médio (MSE - Mean Square Error) e do índice de similaridade
-estrutural (SSIM - Structural Similarity Index Measure).
+Vale ressaltar que a análise destas imagens por algoritimos matemáticos
+(por exemplo, machine learning e deep learning) é uma tendência que se
+verifica, sendo que esses algorítimos, quando aplicados, podem realizar
+reiterados acessos a esses arquivos, o que também se traduz em alta
+demanda de recursos de TI.
 
-    \subsection{2. Dados}\label{dados}
+Assim, supõe-se pela crescente tentação de se comprimir estas imagens,
+pois isto certamente diminuiria sensivelmente o volume de dados e
+consequentemente reduziria a demanda por recursos de armazenamento,
+transmissão e acesso a essas imagens.
+
+Ao mesmo tempo é preciso ficar atento para os efeitos negativos que tais
+compressões poderiam causar na prática. A perda de informações sobre a
+imagem que ocorre na compressão, faria com que houvesse também perda na
+fidelidade das imagens e isso poderia resultar em alterações que seriam
+sentidas tanto por algorítimos matemáticos quanto por visualização
+humana.
+
+Estas alterações também poderiam resultar, por exemplo, em mascaramento
+de alguma anormalidade patológica, o que também poderia contribuir para
+um diagnóstico médico equivocado.
+
+    \section{Dados}\label{dados}
 
     Para a realização dos testes necessários para esta pesquisa, foi
 utilizada uma imagem contida em um registro Dicom referente a um exame
@@ -361,30 +379,23 @@ Dentro deste registro Dicom encontram-se várias imagens 2D dispostas,
 sendo que o nome do arquivo de registro Dicom é descrito na variável
 abaixo.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{n}{arquivo\PYZus{}dicom}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{000001\PYZus{}VBM\PYZus{}6min.dcm}\PY{l+s+s2}{\PYZdq{}}
-\end{Verbatim}
 
     O caminho completo para a abertura do referido arquivo de registro Dicom
 é composto do nome acima e do caminho para a subpasta onde este está
 arquivado, conforme abaixo descrito.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{caminho}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{../images/}\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n}{arquivo\PYZus{}dicom}
-\end{Verbatim}
 
     Abaixo veremos algumas informações referentes ao registro Dicom a ser
 analisado:
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{import} \PY{n+nn}{pickle}
-        \PY{n}{pickle}\PY{o}{.}\PY{n}{dump}\PY{p}{(}\PY{n}{caminho}\PY{p}{,} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{../var/aquivo\PYZus{}dicom.pkl}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wb}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{protocol}\PY{o}{=}\PY{n}{pickle}\PY{o}{.}\PY{n}{HIGHEST\PYZus{}PROTOCOL}\PY{p}{)}
-        \PY{o}{\PYZpc{}}\PY{k}{run} ../dev/arquivo\PYZus{}dicom.ipynb
-\end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Nome do arquivo       : ../images/000001\_VBM\_6min.dcm
-Tipo de armazenamento : 1.2.840.10008.5.1.4.1.1.4.1
+Nome do arquivo       :
+../images/000001\_VBM\_6min.dcm
+
+Tipo de armazenamento :
+1.2.840.10008.5.1.4.1.1.4.1
+
 Nome do paciente      : , 
 Identificação         : 
 Modalidade            : MR
@@ -399,14 +410,15 @@ Número de Lâminas     : 180
 sobre o paciente, sobre a aquisição da imagem e também temos um conjunto
 de lâminas, cujo o número total delas também encontra-se acima descrito.
 
-    \subsection{3. Experimento}\label{experimento}
+    \section{Experimento}\label{experimento}
 
-    Para a nossa análise, foi pega a lâmina que do centro do conjunto. O
-objetivo inicial é o de comprimir a imagem utilizando um algorítimo
-padrão JPeg, considerado eficiente e popular para compressão de imagens,
-porém resulta em perda de dados.
+    Para a nossa análise, foi pega a lâmina do centro do conjunto de
+lâminas. O objetivo inicial é o de comprimir a imagem utilizando um
+algorítimo padrão JPEG, considerado eficiente e popular para compressão
+de imagens, porém resulta em perda de dados. 
 
-Para a compressão neste formato, utilizando a biblioteca PIL, foi feito
+
+    Para a compressão neste formato, utilizando a biblioteca PIL, foi feito
 uma adequação da matriz de bits da imagem, colocando-a necessariamente
 como uma matriz de 8 bits. Apenas neste processo, tendo em vista que a
 matriz original é de 16 bits, há uma inevitável perda de dados, pois
@@ -414,13 +426,9 @@ ocorre a redução da resolução radiométrica da imagem original.
 
 Abaixo, compara-se a imagem original com a imagem adequada.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} Selecao da Lamina de Imagem e Adequacao (possível redução) da resolução radiométrica.}
-        \PY{o}{\PYZpc{}}\PY{k}{run} ../dev/Adequacao.ipynb
-\end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_14_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_18_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -438,11 +446,11 @@ Entretanto, o algorítimo SSIM detectou quase total similaridade entre as
 imagens, o que pode ser evidenciado apenas com a comparando visualmente
 as duas.
 
-O formato JPeg permite que se escolha um percentual de qualidade a ser
+O formato JPEG permite que se escolha um percentual de qualidade a ser
 preservado. O teste foi realizado com a preservação de 80\% da qualidade
 da imagem e desta maneira observa-se que a perda de qualidade é mínima,
 sendo quase imperceptível visualmente sem que a imagem seja ampliada.
-Abaixo, a imagem original é comparada com a imagem já no formato JPeg.
+Abaixo, a imagem original é comparada com a imagem já no formato JPEG.
 Foi adicionado um retângulo vermelho no intuito de destacar uma parte da
 imagem, a qual será ampliada para uma análise visual mais detalhada.
 
@@ -454,13 +462,9 @@ imagem, extendendo-se então a um ponto identificado como estando na
 coluna de pixels que incrementa 20\% a coluna inicial, e também estando
 na linha de pixels que incrementa 20\% da linha inicial.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{pickle}\PY{o}{.}\PY{n}{dump}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{80}\PY{p}{,}\PY{l+m+mi}{53}\PY{p}{,}\PY{l+m+mi}{28}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{]}\PY{p}{,} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{../var/teste\PYZus{}jpeg.pkl}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wb}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{protocol}\PY{o}{=}\PY{n}{pickle}\PY{o}{.}\PY{n}{HIGHEST\PYZus{}PROTOCOL}\PY{p}{)}
-        \PY{o}{\PYZpc{}}\PY{k}{run} ../dev/teste\PYZus{}jpeg.ipynb 
-\end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_16_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_20_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -489,13 +493,9 @@ entre as imagens. Abaixo é possível perceber tais diferenças comparando
 visualmente as imagens recordtadas da imagem original e da imagem
 comprimida JPEG.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{pickle}\PY{o}{.}\PY{n}{dump}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{recorte\PYZus{}raw}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{recorte\PYZus{}jpg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{../var/comparar\PYZus{}imagens.pkl}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wb}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{protocol}\PY{o}{=}\PY{n}{pickle}\PY{o}{.}\PY{n}{HIGHEST\PYZus{}PROTOCOL}\PY{p}{)}
-        \PY{o}{\PYZpc{}}\PY{k}{run} ../dev/comparar\PYZus{}imagens.ipynb 
-\end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_18_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_22_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -513,23 +513,55 @@ Entretanto, observa-se que o algorítimo MSE deu um salto em relação a
 comparação anterior, refletindo uma grande modificação nas imagens
 quando se considera as cores de cada pixel.
 
-    \subsection{4. Conclusão}\label{conclusuxe3o}
+    Para avaliar como evolui o índice de similaridade (SIMM) da imagem
+referente ao recorte em questão na medida em que variamos a qualidade da
+imagem no formato comprimido, podemos observar o histograma abaixo:
 
-    À partir das análises feitas acima, é possível transformar imagens
-digitais médicas em arquivos de imagem do tipo JPeg sem que as perdas de
-informações contidas na imagem possam significar uma perda de qualidade
-da imagem capaz de influenciar negativamente uma análise visual.
 
-Entretanto também conclui-se que é necesspario ter algumas precauções
-nesse tipo de tarefa, como procurar não reduzir a qualidade do arquivo
-JPEG.
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_25_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Reduzindo a qualidade do arquivo JPEG, partindo de 100\% de qualidade
+decrescendo até a qualidade de 1\%, é possível observar no histograma
+acima, o comportamento dos algorítimos SSIM e MSE. Percebe-se que o
+algorítimo MSE começa a refletir as reduções na qualidade da imagem
+continuamente desde o princípio, enquanto o algorítimo SIMM, mais eficaz
+para refeletir resultados sensíveis à visão humana, demora mais para
+traduzir em números as reduções de qualidade da imagem.
+
+    Este experimento está disponível para reprodutibilidade e pode ser
+acessado no repositório do Git Hub através do endereço:
+https://github.com/AdrianodaSilva2017/IA369Z 
+
+    \section{Conclusão}\label{conclusuxe3o}
+
+    À partir das análises feitas neste experimento, conclui-se que é
+possível transformar imagens digitais médicas em arquivos de imagem do
+tipo JPEG sem que as perdas de informações contidas na imagem possam
+significar uma perda de qualidade da imagem capaz de influenciar
+negativamente uma análise visual.
+
+É impressindível ressaltar, no entanto, que as alterações feitas pela
+compressão de dados, modificam substancialmente a imagem para análises
+realizadas por alguns scripts matemáticos, como é o caso do MSE.
+
+Também verifica-se a necessidade de algumas precauções nesse tipo de
+tarefa, como procurar não reduzir a qualidade do arquivo JPEG para
+abaixo dos 85\%, para que não haja também alterações ainda mais
+profundas na fidelidade da imagem de tal maneira que seriam sentidas
+visualmente, e que teriam o potencial de favorecer a ocorrência de
+equívocos em diagósticos médicos. 
+
+    
 
 
     % Add a bibliography block to the postdoc
     
     
-\bibliographystyle{plain}
-\bibliography{ref}
+\bibliographystyle{abbrv-doi}
+\bibliography{reference}
 
     
     \end{document}

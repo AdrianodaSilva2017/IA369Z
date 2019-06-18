@@ -1,5 +1,16 @@
 ((*- extends 'article.tplx' -*))
 
+((* block docclass *))
+\documentclass{IEEEtran}
+
+
+((* endblock docclass *))
+
+
+((* block input_group *))
+((* endblock input_group *))
+
+
 ((* block author *))
 \author{Adriano da Silva}
 ((* endblock author *))
@@ -9,6 +20,8 @@
 ((* endblock title *))
 
 ((* block bibliography *))
-\bibliographystyle{plain}
-\bibliography{ref}
+\bibliographystyle{abbrv-doi}
+\bibliography{reference}
 ((* endblock bibliography *))
+
+
