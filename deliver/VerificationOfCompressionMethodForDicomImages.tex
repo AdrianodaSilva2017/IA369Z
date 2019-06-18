@@ -372,20 +372,13 @@ um diagnóstico médico equivocado.
     \section{Dados}\label{dados}
 
     Para a realização dos testes necessários para esta pesquisa, foi
-utilizada uma imagem contida em um registro Dicom referente a um exame
-de tomografia computadorizada, anonimizada.
-
-Dentro deste registro Dicom encontram-se várias imagens 2D dispostas,
-sendo que o nome do arquivo de registro Dicom é descrito na variável
-abaixo.
+utilizada uma imagem contida em um arquivo de registro DICOM referente a
+um exame de tomografia computadorizada, anonimizada. Este é o dado bruto
+utilizado neste experimento.
 
 
-    O caminho completo para a abertura do referido arquivo de registro Dicom
-é composto do nome acima e do caminho para a subpasta onde este está
-arquivado, conforme abaixo descrito.
 
-
-    Abaixo veremos algumas informações referentes ao registro Dicom a ser
+    Abaixo veremos algumas informações extraídas do registro DICOM a ser
 analisado:
 
 
@@ -400,35 +393,51 @@ Nome do paciente      : ,
 Identificação         : 
 Modalidade            : MR
 Data do estudo        : 20130202
-Dimensões da imagem   : 240 x 240, 20736000 bytes
+Dimensões da imagem   : 240 x 240
+20736000 bytes
+
 Local das lâminas     : (missing)
 Número de Lâminas     : 180
 
     \end{Verbatim}
 
-    Conforme podemos ver acima, o registro Dicom é composto por informações
+    Conforme podemos ver acima, o registro DICOM é composto por informações
 sobre o paciente, sobre a aquisição da imagem e também temos um conjunto
-de lâminas, cujo o número total delas também encontra-se acima descrito.
+de lâminas de imagens 2D, cujo o número total delas, também extraído do
+registro e encontra-se acima descrito.
+
+Dentro deste arquivo de registro DICOM encontram-se 180 imagens 2D
+dispostas em lâminas de 240 x 240 pixels. Essas imagens forão lidas
+dentro do arquivo DICOM e armazenadas em uma matriz de pixels de 3
+dimensões, sendo 180 x 240 x 240. Cada posição na matriz contém um pixel
+da imagem representado por um valor numérico disposto em um intervalo de
+16 bits.
+
+Essa matriz representa a imagem 3D do registro DICOM e será ela a parte
+utilizada do dado para o experimento.
 
     \section{Experimento}\label{experimento}
 
     Para a nossa análise, foi pega a lâmina do centro do conjunto de
-lâminas. O objetivo inicial é o de comprimir a imagem utilizando um
-algorítimo padrão JPEG, considerado eficiente e popular para compressão
-de imagens, porém resulta em perda de dados. 
+lâminas, ou seja, a imagem contida na posição 90 da matriz de imagens do
+registro DICOM. O objetivo inicial é o de comprimir a imagem utilizando
+um algorítimo padrão JPEG, considerado eficiente e popular para
+compressão de imagens, porém a compressão com este algorítimo resulta em
+perda de dados. 
 
 
     Para a compressão neste formato, utilizando a biblioteca PIL, foi feito
 uma adequação da matriz de bits da imagem, colocando-a necessariamente
 como uma matriz de 8 bits. Apenas neste processo, tendo em vista que a
-matriz original é de 16 bits, há uma inevitável perda de dados, pois
-ocorre a redução da resolução radiométrica da imagem original.
+matriz original tem seus pixels representados em um intervalo de 16
+bits, há uma inevitável perda de dados, pois ocorre a redução da
+resolução radiométrica da imagem original.
 
 Abaixo, compara-se a imagem original com a imagem adequada.
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_18_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_17_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -464,7 +473,7 @@ na linha de pixels que incrementa 20\% da linha inicial.
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_20_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_19_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -495,7 +504,7 @@ comprimida JPEG.
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_22_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_21_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -519,7 +528,7 @@ imagem no formato comprimido, podemos observar o histograma abaixo:
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_25_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionMethodForDicomImages_24_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -539,9 +548,10 @@ https://github.com/AdrianodaSilva2017/IA369Z
 
     À partir das análises feitas neste experimento, conclui-se que é
 possível transformar imagens digitais médicas em arquivos de imagem do
-tipo JPEG sem que as perdas de informações contidas na imagem possam
-significar uma perda de qualidade da imagem capaz de influenciar
-negativamente uma análise visual.
+tipo JPEG sem que as perdas de informações contidas na imagem original,
+decorrentes do processo de compressão, possam significar uma perda de
+qualidade da imagem capaz de influenciar negativamente uma análise
+visual.
 
 É impressindível ressaltar, no entanto, que as alterações feitas pela
 compressão de dados, modificam substancialmente a imagem para análises
