@@ -129,27 +129,27 @@ Exemplo:
 	teste_jpeg=[50,75,28,25,20]
 
 ## Substituindo a imagem para testes
-Através deste artigo é possível também realizar testes com um arquvo DICOM externo (do próprio leitor). Para tal, é necessário criar um container com mapeamento externo, o que requer apontar o caminho para uma pasta especifica criada ou existente no computador onde o leitor estiver executando a experiencia.
-	- Remova o container original para evitar conflitos com os seguintes comandos:
-		docker stop IA369Z01
-		docker rm IA369Z01
-	- Adicione o seguinte parâmetro no comando para criacao do container, trocando <origem> pelo caminho completo da pasta onde está armazenado o arquivo DICOM a ser analisado: 
-		-v <origem>:/externo
-	Exemplo de como ficaria o comando para a criação do container:
-		docker run -d --name IA369Z01 --hostname IA369Z --shm-size 1g --security-opt seccomp:./chrome.json -v /home/adriano/container:/externo -p 3389:3389 -p 2200:22 adriano1977/ia369z:v0.5
+Através deste artigo é possível também realizar testes com um arquvo DICOM externo (do próprio leitor). Para tal, é necessário criar um container com mapeamento externo, o que requer apontar o caminho para uma pasta especifica criada ou existente no computador onde o leitor estiver executando a experiencia.<br>
+	- Remova o container original para evitar conflitos com os seguintes comandos:<br>
+		docker stop IA369Z01<br>
+		docker rm IA369Z01<br>
+	- Adicione o seguinte parâmetro no comando para criacao do container, trocando <origem> pelo caminho completo da pasta onde está armazenado o arquivo DICOM a ser analisado:<br>
+		-v <origem>:/externo<br>
+	Exemplo de como ficaria o comando para a criação do container:<br>
+		docker run -d --name IA369Z01 --hostname IA369Z --shm-size 1g --security-opt seccomp:./chrome.json -v /home/adriano/container:/externo -p 3389:3389 -p 2200:22 adriano1977/ia369z:v0.5<br>
 
-Após a criação do container, acesse a área de trabalho para a reprodução da experiência da mesma maneira como desctrito nas seções anteriores.
+Após a criação do container, acesse a área de trabalho para a reprodução da experiência da mesma maneira como desctrito nas seções anteriores.<br>
 
-Algumas variáveis precisarão ser alteradas. São elas:
-	- arquivo_dicom;
-	- caminho;
+Algumas variáveis precisarão ser alteradas. São elas:<br>
+	- arquivo_dicom;<br>
+	- caminho;<br>
 	
-	Na variável "arquivo_dicom", coloque o nome do seu arquivo de imagens DICOM:
+	Na variável "arquivo_dicom", coloque o nome do seu arquivo de imagens DICOM:<br>
 
-		arquivo_dicom="nome_do_arquivo.dcm"
+		arquivo_dicom="nome_do_arquivo.dcm"<br>
 
-	Na variável "caminho", coloque o seguinte conteúdo:
-		caminho="/externo/"
+	Na variável "caminho", coloque o seguinte conteúdo:<br>
+		caminho="/externo/"<br>
 
 Após tais alterações, execute a experiência e veja os resultados.
 
