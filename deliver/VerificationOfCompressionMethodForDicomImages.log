@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  19 JUN 2019 06:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.5)  19 JUN 2019 08:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,16 +844,7 @@ LaTeX Info: Redefining \nameref on input line 289.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-)
-
-LaTeX Warning: Citation `grauer2009working' on page 1 undefined on input line 3
-13.
-
-
-LaTeX Warning: Citation `arthur2017making' on page 1 undefined on input line 35
-3.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
@@ -880,7 +871,7 @@ Underfull \hbox (badness 7522) in paragraph at lines 441--447
  []
 
 <VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionM
-ethodForDicomImages_17_0.png, id=31, 991.705pt x 479.7925pt>
+ethodForDicomImages_17_0.png, id=43, 991.705pt x 479.7925pt>
 File: VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompres
 sionMethodForDicomImages_17_0.png Graphic file (type png)
 <use VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompress
@@ -896,7 +887,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 474--475
 [2 <./VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompres
 sionMethodForDicomImages_17_0.png>]
 <VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionM
-ethodForDicomImages_19_0.png, id=39, 991.705pt x 479.7925pt>
+ethodForDicomImages_19_0.png, id=51, 991.705pt x 479.7925pt>
 File: VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompres
 sionMethodForDicomImages_19_0.png Graphic file (type png)
 <use VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompress
@@ -915,7 +906,7 @@ Underfull \hbox (badness 1521) in paragraph at lines 518--521
  []
 
 <VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionM
-ethodForDicomImages_21_0.png, id=40, 985.6825pt x 479.7925pt>
+ethodForDicomImages_21_0.png, id=52, 985.6825pt x 479.7925pt>
 File: VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompres
 sionMethodForDicomImages_21_0.png Graphic file (type png)
 <use VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompress
@@ -929,7 +920,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 541--542
  []
 
 <VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressionM
-ethodForDicomImages_24_0.png, id=41, 616.3025pt x 320.19624pt>
+ethodForDicomImages_24_0.png, id=53, 616.3025pt x 320.19624pt>
 File: VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompres
 sionMethodForDicomImages_24_0.png Graphic file (type png)
 <use VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompress
@@ -967,42 +958,40 @@ Underfull \hbox (badness 3158) in paragraph at lines 575--578
 \T1/ppl/m/n/10 repositório do Git Hub através do en-dereço:
  []
 
-(./VerificationOfCompressionMethodForDicomImages.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 609.
- [4
-
- <./VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompressi
-onMethodForDicomImages_24_0.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 609.
+(./VerificationOfCompressionMethodForDicomImages.bbl
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+))
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
+ [4 <./VerificationOfCompressionMethodForDicomImages_files/VerificationOfCompre
+ssionMethodForDicomImages_24_0.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
  (./VerificationOfCompressionMethodForDicomImages.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 609.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 609.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 608.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 608.
 Package rerunfilecheck Info: File `VerificationOfCompressionMethodForDicomImage
 s.out' has not changed.
-(rerunfilecheck)             Checksum: 0B93750C5D13BC908CA826FDE697CB5B;234.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 609.
+(rerunfilecheck)             Checksum: 7735590E478E413F321F5E879C686536;280.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 608.
  ) 
 Here is how much of TeX's memory you used:
- 12148 strings out of 494923
- 185172 string characters out of 6180743
- 282211 words of memory out of 5000000
- 15251 multiletter control sequences out of 15000+600000
- 68550 words of font info for 105 fonts, out of 8000000 for 9000
+ 12415 strings out of 494923
+ 188348 string characters out of 6180743
+ 282362 words of memory out of 5000000
+ 15509 multiletter control sequences out of 15000+600000
+ 69206 words of font info for 106 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,7n,38p,422b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/palatino/uplr8a.pfb>
+urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
+/uplri8a.pfb>
 Output written on VerificationOfCompressionMethodForDicomImages.pdf (4 pages, 3
-00010 bytes).
+13114 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 87 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

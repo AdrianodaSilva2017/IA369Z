@@ -1,11 +1,11 @@
-# IA369Z - Verificação de método de compressão para imagens Dicom
+#### IA369Z - Verificação de método de compressão para imagens Dicom
 
-# FEEC Unicamp - Pós Graduação
-# RA 262097 - Adriano da Silva
-# Profa. Leticia Rittner
-# Projeto para disciplina Reprodutibilidade em pesquisa computacional (IA369Z).
+#### FEEC Unicamp - Pós Graduação
+#### RA 262097 - Adriano da Silva
+#### Profa. Leticia Rittner
+#### Projeto para disciplina Reprodutibilidade em pesquisa computacional (IA369Z).
 
-# IA369Z - Verificação de método de compressão para imagens Dicom
+#### IA369Z - Verificação de método de compressão para imagens Dicom
 
 Este projeto tem finalidade apenas para estudos.
 

@@ -20,7 +20,7 @@
 ((* endblock title *))
 
 ((* block bibliography *))
-\bibliographystyle{abbrv-doi}
+\bibliographystyle{ieeetr}
 \bibliography{reference}
 ((* endblock bibliography *))
 

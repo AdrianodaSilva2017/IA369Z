@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{grauer2009working}
+D.~Grauer, L.~S. Cevidanes, and W.~R. Proffit, ``Working with dicom
+  craniofacial images,'' {\em American Journal of Orthodontics and Dentofacial
+  Orthopedics}, vol.~136, no.~3, pp.~460--470, 2009.
+
+\bibitem{koff2009pan}
+D.~Koff, P.~Bak, P.~Brownrigg, D.~Hosseinzadeh, A.~Khademi, A.~Kiss,
+  L.~Lepanto, T.~Michalak, H.~Shulman, and A.~Volkening, ``Pan-canadian
+  evaluation of irreversible compression ratios (“lossy” compression) for
+  development of national guidelines,'' {\em Journal of digital imaging},
+  vol.~22, no.~6, p.~569, 2009.
+
+\bibitem{arthur2017making}
+S.~Arthur, ``{Yelp Engineering} making photos smaller without quality loss,''
+  2017.
+\newblock Accessed: 2019-06-04.
+
+\bibitem{rosebrock2014python}
+A.~Rosebrock, ``{pyimagesearch} how-to: Python compare two images,'' 2014.
+\newblock Accessed: 2019-06-01.
+
+\end{thebibliography}
