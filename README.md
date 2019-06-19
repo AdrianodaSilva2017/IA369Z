@@ -19,27 +19,28 @@ Os dados desde projeto estão licenciados sob a licença Creative Commons CC0. U
 O propósito deste projeto é a produção de um artigo executável e uma pesquisa reproduzível. A pesquisa busca demonstrar métodos de compressão de imagens DICOM que não interfiram na visualização humana das imagens.
 
 # Ambiente
-O ambiente para as experiências foi composto das seguintes ferramentas:
- - Anaconda 1.9.7
- - Jupyter Notebook versão 5.7.4
- - Python 3.7.1 (default, Dec 14 2018, 19:28:38)
- - nbconvert
- - Sistema Operacional GNU Linux Ubuntu SMP Kernel 4.15.0-50-generic x86_64
- - rdesktop versão 1.8.3
- - Docker-CE versão 18.09.6
- - Bibliotecas: 
-	- pydicom v1.2.2
-	- numpy v1.15.4
-	- matplotlib v3.0.2
-	- PIL (Pillow v5.3.0)
+O ambiente para as experiências foi composto das seguintes ferramentas: <br>
+ - Anaconda 1.9.7 <br>
+ - Jupyter Notebook versão 5.7.4 <br>
+ - Python 3.7.1 (default, Dec 14 2018, 19:28:38) <br>
+ - nbconvert <br>
+ - Sistema Operacional GNU Linux Ubuntu SMP Kernel 4.15.0-50-generic x86_64 <br>
+ - rdesktop versão 1.8.3 <br>
+ - Docker-CE versão 18.09.6 <br>
+ - Bibliotecas:  <br>
+	- pydicom v1.2.2 <br>
+	- numpy v1.15.4 <br>
+	- matplotlib v3.0.2 <br>
+	- PIL (Pillow v5.3.0) <br>
 
 # A estrutura de diretorios
-A estrutura de diretorios é disposta da seguinte maneira:
-	/data     : Contém os dados em que o sistema armazena pesquisas
-	/dev      : Contém as pastas de desenvolvimento
-	/deliver  : Contém os arquivos do artigo executável, incluíndo o .ipynb principal, além dos arquivos .tex e .pdf
-	/images   : Contém as imagens utilizadas na experiência
-	/var      : Contém as variáveis sereializadas utilizadas pela experiência
+A estrutura de diretorios é disposta da seguinte maneira:<br>
+	/data     : Contém os dados em que o sistema armazena pesquisas<br>
+	/dev      : Contém as pastas de desenvolvimento<br>
+	/deliver  : Contém os arquivos do artigo executável, incluíndo o .ipynb principal, além dos arquivos .tex e .pdf<br>
+	/env      : Contém os arquivos de configuração do ambiente para execução dos experimentos.<br>
+	/images   : Contém as imagens utilizadas na experiência<br>
+	/var      : Contém as variáveis sereializadas utilizadas pela experiência<br>
 
 # Instruções básicas:
 
