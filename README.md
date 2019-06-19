@@ -145,15 +145,15 @@ Através deste artigo é possível também realizar testes com um arquvo DICOM e
 
 Após a criação do container, acesse a área de trabalho para a reprodução da experiência da mesma maneira como desctrito nas seções anteriores.<br>
 
-Algumas variáveis precisarão ser alteradas. São elas:<br>
+Algumas variáveis definidas nas células de código do arquivo .ipynb principal, encontrado no diretório "deliver", precisarão ser alteradas. São elas:<br>
 	- arquivo_dicom;<br>
 	- caminho;<br>
 	
-	Na variável "arquivo_dicom", coloque o nome do seu arquivo de imagens DICOM:
+	Na variável "arquivo_dicom", coloque o nome do arquivo de imagens DICOM que deseja testar:
 
-		arquivo_dicom="nome_do_arquivo.dcm"
+		arquivo_dicom="nome_do_arquivo_para_testar.dcm"
 
-	Na variável "caminho", coloque o seguinte conteúdo:
+	Na variável "caminho" contida em outra célula, coloque exatamente o seguinte conteúdo:
 		caminho="/externo/"
 
 Após tais alterações, execute a experiência e veja os resultados.
