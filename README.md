@@ -54,9 +54,14 @@ Para executar o exeperimento, execute os seguintes passos:
 			https://docs.docker.com/docker-for-mac/install/
 
 			
-	- clone o repositório do projeto;
+	- instale um cliente git e clone o repositório do projeto. Mais informações sobre como baixar o cliente git neste link: 
+		https://git-scm.com/downloads
 
-	- dentro do diretório "env", baixe a imagem, crie e rode o container com o seguinte comando:
+	- se preferir, poderá apenas baixar o repósitório como arquivo zip e descompactar o arquivo em um diretório;
+
+	- Em uma janela de terminal (ou no prompt de comandos do Windows), entre dentro do diretório criado ao clonar o repositório ou ao descompactar o arquivo zip, onde haverá uma estrutura de sub-diretórios e arquivos;
+
+	- Entre no sub-diretório "env", baixe a imagem Docker, crie e rode o container com o seguinte comando:
 		docker run -d --name IA369Z01 --hostname IA369Z --shm-size 1g --security-opt seccomp:./chrome.json -p 3389:3389 -p 2200:22 adriano1977/ia369z:v0.5
 	** IMPORTANTE ** Caso a porta 3389 esteja ocupada no computador onde será executado o experimento, será necessário alterar o mapeamento da porta durante a execução deste comando, ainda na primeira vez que for executar. Por exemplo, caso queira mapear para a porta 5555 (desde que esta esteja livre para uso), modifique o conteúdo do parâmentro -p da seguinte maneira:
 		onde estava: -p3389:3389

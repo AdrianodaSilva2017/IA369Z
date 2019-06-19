@@ -16,7 +16,7 @@
 ((* endblock author *))
 
 ((* block title *))
-\title{Verificação de método de compressão para imagens Dicom}
+\title{Verificação de método de compressão para imagens DICOM}
 ((* endblock title *))
 
 ((* block bibliography *))
