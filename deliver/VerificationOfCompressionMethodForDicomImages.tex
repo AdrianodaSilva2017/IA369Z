@@ -318,7 +318,39 @@ imagem adquirida deste (chamados de DICOMDIR) adicionado de um conjunto
 de várias imagens 2D (lâminas) que ordenadas de maneira adequada formam
 uma imagem 3D.
 
-Segundo \cite{koff2009pan}
+Os registros DICOM são arquivos eletrônicos de dados relativamente
+grandes e por isso consomem muito recurso, tanto em capacidade para o
+seu devido armazenamento quanto em banda para sua transmissão em redes
+de dados, gerando altos custos e complicações de infraestrutura de TI.
+Os autores destacam que, apesar dos problemas aludidos, a demanda por
+armazenamento deste tipo de dados tem crescido bastante o que eleva o
+interesse pela busca por alternativas eficientes para a compressão
+destes dados.
+
+Ainda conforme a visão dos autores, esta necessidade se evidencia em
+departamentos de imagens médicas, principalmente quando se fala em
+imagens de multiplas lâminas, como nos casos de exames de tomografia
+computadorizada (CT) e de imagem de ressonância magnética (RMI).
+
+O objetivo desta pesquisa é encontrar um método de compressão de imagens
+para ser aplicado em lâminas de images DICOM relativas a resultados de
+exames de diagnósticos por imagem, desde que a perda de qualidade seja
+mínima, não interferindo negativamente em uma análise clínica humana.
+
+Para tal, foi analisado visualmente as imagens, fazendo um corte em uma
+determinada região da mesma, destacando e aplicando aumento no tamanho
+para facilitar a comparação. Foi medido também atráves dos algorítimos
+de erro quadratico médio de índice de similaridade estrutural aplicados
+à imagem, alterações visuais que ocorrem nos processos de compressão da
+imagem.
+
+Analisaremos o resultado obtido com a compressão de imagens JPEG por ser
+um padrão popular e eficiente.
+
+Para auxiliar na pesquisa, utilizaremos os algorítimos do erro
+quadrático médio (MSE - Mean Square Error) e do índice de similaridade
+estrutural (SSIM - Structural Similarity Index
+Measure).\cite{arthur2017making}
 
     \section{Motivação}\label{motivauxe7uxe3o}
 

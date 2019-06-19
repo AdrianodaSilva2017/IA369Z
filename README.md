@@ -72,6 +72,10 @@ Para executar o exeperimento, execute os seguintes passos:
 
 A porta TCP 3389 deverá estar disponível para uso do experimento. Caso ela não esteja disponível, é necessário mapear outra porta, antes de acessar a área de trabalho, ainda no momento de "rodar" o container com o comando "docker run" descrito acima.
 
+Após acessar a área de trabalho pela primeira vez, aparecerá uma janela de boas vindas ao primeiro início do painel, pedidno para escolher qual configuração você quer para a primeira inicialização. Escolha "Usar configuração padrão".
+
+O próximo passo é fazer acesso ao aplicativo "Emulador de Terminal". Este acesso é necessário uma única vez para a criação do ícone referente ao experimento na área de trabalho. Após o ícone do aplicativo "jupyter" nomeado como "Verification Of Compression Method For Dicom Images" do experimento aparecer na área de trabalho, o aplicativo "Emulador de Terminal" poderá ser fechado e não será mais necessário para a realização do experimento.
+
 # Área de trabalho para reprodução da experiência
 Para acessar a área de trabalho da pesquisa, utilize um cliente de área de trabalho remota que utilize o padrão Microsoft RDP, acessando o endereço localhost (127.0.0.1) e a porta TCP 3389, ou outra que tenha sido configurado diferente, se for o caso.
 
@@ -105,9 +109,12 @@ Você pode utilizar, por exemplo, o cliente para área de trabalho remota da Mic
 Alternativamente você pode utilizar o aplicativo Cord, que pode ser acessado no endereço: http://cord.sourceforge.net/
 
 # Execução do Artigo
-Após acessar a área de trabalho, esta irá abrir automaticamente uma janela de navegação com a aplicação Jupyter Notebook aberta dentro da estrutura de diretórios da experiência.
-Estando então no Jupyter Notebook, acesse através dele a pasta "deliver" e abra o arquivo principal da experiência que é denominado "VerificationOfCompressionMethodForDicomImages.ipynb".
-Execute então este artigo e veja os resultados.
+Após acessar a área de trabalho e executar todos os procedimentos preliminares descritos nas instruções básicas, haverá um ícone na área de trabalho denominado "Verification Of Compression Method For Dicom Images". Este ícone deverá ser acessado para o início da experiência, ele dará acesso a estrutura de diretórios da experiência.
+
+Estando então no Jupyter Notebook, dentro da estrutura de diretórios da experiência IA369Z, acesse através dele a pasta "deliver" e abra o arquivo principal da experiência que é denominado "VerificationOfCompressionMethodForDicomImages.ipynb".
+Execute então as células deste artigo duas vezes e veja os resultados.
+
+# Modificando parâmetros
 Através deste artigo é possível também modificar alguns parâmetros para testes.
 Exemplo:
 	- Modificando a variável "teste_jpeg" você poderá fazer diferentes análises aumentando ou diminuindo a qualidade da imagem na compressão jpeg e também poderá modificar a região que deseja ampliar para uma análise mais aprofundada.
@@ -120,7 +127,29 @@ Exemplo:
 	Portanto, se quizermos um retângulo que se inicie na coluna equivalente a 75% das colunas da imagem, deveremos modificar o segundo parâmetro para 75. E se quizermos que este mesmo retângulo tenha a largura equivalente a 25% da imagem, deveremos colocar o valor 25 no quarto parâmetro e então executarmos novamente a célula. Exemplo:
 	teste_jpeg=[50,75,28,25,20]
 
+## Substituindo a imagem para testes
+Através deste artigo é possível também realizar testes com um arquvo DICOM externo (do próprio leitor). Para tal, é necessário criar um container com mapeamento externo, o que requer apontar o caminho para uma pasta especifica criada ou existente no computador onde o leitor estiver executando a experiencia.
+	- Remova o container original para evitar conflitos com os seguintes comandos:
+		docker stop IA369Z01
+		docker rm IA369Z01
+	- Adicione o seguinte parâmetro no comando para criacao do container, trocando <origem> pelo caminho completo da pasta onde está armazenado o arquivo DICOM a ser analisado: 
+		-v <origem>:/externo
+	Exemplo de como ficaria o comando para a criação do container:
+		docker run -d --name IA369Z01 --hostname IA369Z --shm-size 1g --security-opt seccomp:./chrome.json -v /home/adriano/container:/externo -p 3389:3389 -p 2200:22 adriano1977/ia369z:v0.5
 
+Após a criação do container, acesse a área de trabalho para a reprodução da experiência da mesma maneira como desctrito nas seções anteriores.
 
+Algumas variáveis precisarão ser alteradas. São elas:
+	- arquivo_dicom;
+	- caminho;
+	
+	Na variável "arquivo_dicom", coloque o nome do seu arquivo de imagens DICOM:
+
+		arquivo_dicom="nome_do_arquivo.dcm"
+
+	Na variável "caminho", coloque o seguinte conteúdo:
+		caminho="/externo/"
+
+Após tais alterações, execute a experiência e veja os resultados.
 
 
